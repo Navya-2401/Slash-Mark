@@ -27,6 +27,13 @@ The main execution loop in `autonomous_stack.py` orchestrates three primary phas
 
 ## Installation & Setup
 
+Development Notes & Modernization Fixes
+Numpy Deprecation: Implemented a shim (np.int = int) to handle modern Numpy environments where legacy np.int aliases have been removed.
+
+Scikit-Image Updates: Updated kwargs in HOG feature extraction from the legacy British spelling (visualise) to the modern American spelling (visualize).
+
+Pickle Deserialization: Built a sys.modules translation map to allow modern scikit-learn (v1.x+) to successfully unpickle models trained on legacy versions (v0.18).
+
 To run this project locally, you must install the required dependencies. The pre-trained SVM model was originally serialized in an older version of scikit-learn, so the master script includes compatibility shims to map legacy module paths to modern environments.
 
 1. **Install Dependencies:**
